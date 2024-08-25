@@ -5,18 +5,19 @@ module.exports = {
     await queryInterface.createTable('educations', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       bio_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: 'bio',
           key: 'id',
         },
-
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       level: {
         type: Sequelize.STRING,
