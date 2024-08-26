@@ -13,7 +13,16 @@ const authJWT = async (req, res, next) => {
             return res.status(401).json({ info: "Unauthorized" });
         }
 
-        req.user = await db.users.findByPk(user.id);
+        const userData = await db.users.findOne({
+            where: {
+                id: user.id
+            },
+            attributes: {
+                exclude: ["password"]
+            }
+        }) 
+        
+        req.user = userData;
         next();
     });
 };

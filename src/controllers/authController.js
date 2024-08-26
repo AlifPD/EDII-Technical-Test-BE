@@ -68,6 +68,7 @@ const login = async (req, res) => {
         const accessToken = generateToken({
             id: user.id,
             email: user.email,
+            role: user.role
         })
 
         res.status(200).json({
@@ -76,6 +77,7 @@ const login = async (req, res) => {
                 token: accessToken,
                 user: {
                     email: user.email,
+                    role: user.role,
                     bio: user.bio
                 }
             }
