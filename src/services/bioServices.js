@@ -94,8 +94,7 @@ const getBioByUserId = async (user_id) => {
     });
 
     return {
-        data: usersBio,
-        total: totalUsersBio[0].total
+        data: usersBio
     }
 };
 

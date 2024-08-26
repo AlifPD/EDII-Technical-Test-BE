@@ -77,6 +77,7 @@ const login = async (req, res) => {
                 token: accessToken,
                 user: {
                     email: user.email,
+                    role: user.role,
                     bio: user.bio
                 }
             }

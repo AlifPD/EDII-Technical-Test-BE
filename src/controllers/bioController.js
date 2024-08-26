@@ -35,7 +35,7 @@ const getBio = async (req, res) => {
             });
         }
 
-        const bioData = await getBioById(id);
+        const bioData = await getBioByUserId(id);
         if (!bioData) {
             return res.status(409).json({
                 info: 'Bio doesn\'t exist'
